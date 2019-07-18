@@ -10,6 +10,9 @@ public class Tester : MonoBehaviour
     [Range(1,6)]
     public int NumOfTrial = 1; //1=12, 2=24
 
+    public List<AudioClip> AS;
+    private AudioSource audioSource;
+
     List<string> pitch = new List<string> { "ド", "ド＃", "レ", "レ＃", "ミ", "ファ", "ファ＃", "ソ", "ソ＃", "ラ", "ラ＃", "シ"};
     List<string> totalPitch = new List<string>();
 
@@ -41,6 +44,8 @@ public class Tester : MonoBehaviour
 
         go = ColorPickedPrefab;
         CP = go.GetComponent<ColorPickerTriangle>();
+
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -66,4 +71,58 @@ public class Tester : MonoBehaviour
         //カラーピッカーの色を白にリセット
         CP.TheColor = Color.white;
     }
+
+    private void OnMouseDown() {
+        switch(totalPitch[num]) {
+            case "ド":
+                audioSource.clip = AS[0];
+                audioSource.Play();
+                break;
+            case "ド＃":
+                audioSource.clip = AS[1];
+                audioSource.Play();
+                break;
+            case "レ":
+                audioSource.clip = AS[2];
+                audioSource.Play();
+                break;
+            case "レ＃":
+                audioSource.clip = AS[3];
+                audioSource.Play();
+                break;
+            case "ミ":
+                audioSource.clip = AS[4];
+                audioSource.Play();
+                break;
+            case "ファ":
+                audioSource.clip = AS[5];
+                audioSource.Play();
+                break;
+            case "ファ＃":
+                audioSource.clip = AS[6];
+                audioSource.Play();
+                break;
+            case "ソ":
+                audioSource.clip = AS[7];
+                audioSource.Play();
+                break;
+            case "ソ＃":
+                audioSource.clip = AS[8];
+                audioSource.Play();
+                break;
+            case "ラ":
+                audioSource.clip = AS[9];
+                audioSource.Play();
+                break;
+            case "ラ＃":
+                audioSource.clip = AS[10];
+                audioSource.Play();
+                break;
+            case "シ":
+                audioSource.clip = AS[11];
+                audioSource.Play();
+                break;
+        }
+    }
+
 }
